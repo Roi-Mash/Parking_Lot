@@ -3,6 +3,7 @@ A program which get logs of vehicles entering and leaving the parking lot.
 
 ## Functions:
 Each function get an array of string arrays.
+I have defined the input and the call of the functions inside the program
 
 ### NumberOfVehicles
 Returns How many vehicles spent more than 'X' hours depends on the vehicle type.
@@ -16,7 +17,7 @@ Returns how many vehicles has spent the last night in the parking lot
 ### BusiestHours
 Return a list of the busiest hours of the day
 
-I have defined the input inside the program
+
 
 ## Run
 
@@ -34,5 +35,5 @@ and than:
 java Main
 ```
 
-or use the terminal of the IDE 
+or use the terminal of the IDE.
 
