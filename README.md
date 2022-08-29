@@ -25,13 +25,13 @@ Open a command prompt window and go to the directory where the program is saved.
 Run the following command:
 
 ```shell
-javac main.java
+javac Main.java
 ```
 
 and than:
 
 ```shell
-java main
+java Main
 ```
 
 or use the terminal of the IDE 
