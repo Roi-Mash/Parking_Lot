@@ -31,8 +31,6 @@ public class Vehicle {
                 break;
         }
         parking_date_time.setTime(formatter.parse(date_time));
-
-
     }
 
 

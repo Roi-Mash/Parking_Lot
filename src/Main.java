@@ -17,18 +17,18 @@ public class Main {
                     {"55555", "MOTORCYCLE", "2020-01-01T15:52:00.000Z","ENTRANCE" },
 
                      //Remain last night test
-                    {"1000001", "TRUCK", "2020-01-01T00:00:00.000Z","EXIT" },
+                    {"1000001", "TRUCK", "2020-01-01T07:00:00.000Z","EXIT" },
                     {"1000002", "TRUCK", "2020-01-01T09:00:00.000Z","EXIT" },
 
-//                    //Exit before X time by 1 minute
-//                    {"11111", "TRUCK", "2020-01-01T02:59:00.000Z","EXIT" },
-//                    {"33333", "CAR", "2020-01-01T06:24:00.000Z","EXIT" },
-//                    {"44444", "MOTORCYCLE", "2020-01-01T19:29:00.000Z","EXIT" }
+                    //Exit before X time by 1 minute
+                    {"11111", "TRUCK", "2020-01-01T13:59:00.000Z","EXIT" },
+                    {"33333", "CAR", "2020-01-01T08:24:00.000Z","EXIT" },
+                    {"44444", "MOTORCYCLE", "2020-01-01T19:29:00.000Z","EXIT" }
 
-//                     Exit after X time
-                    {"11111", "TRUCK", "2020-01-01T13:00:00.000Z","EXIT" },
-                    {"33333", "CAR", "2020-01-01T018:25:00.000Z","EXIT" },
-                    {"44444", "MOTORCYCLE", "2020-01-01T19:30:00.000Z","EXIT" }
+////                     Exit after X time
+//                    {"11111", "TRUCK", "2020-01-01T14:00:00.000Z","EXIT" },
+//                    {"33333", "CAR", "2020-01-01T008:25:00.000Z","EXIT" },
+//                    {"44444", "MOTORCYCLE", "2020-01-01T19:30:00.000Z","EXIT" }
 
 
             };
@@ -48,7 +48,7 @@ public class Main {
         ParkingLot parkinglot = new ParkingLot(logs);
         System.out.println("There are:\n"+parkinglot.getTypeCounter()[0]+" motorcycles"
                             +"\n"+parkinglot.getTypeCounter()[1]+" cars"
-                            +"\n"+parkinglot.getTypeCounter()[2]+" trucks");
+                            +"\n"+parkinglot.getTypeCounter()[2]+" trucks\nin the parking lot");
 
 
     }
@@ -93,7 +93,7 @@ public class Main {
     }
 
     /**
-     * Returns how many vehicles has spent the last night in the parking let
+     * Returns how many vehicles has spent the last night in the parking lot
      */
     public static int VehiclesAtNight(String[][] logs) throws ParseException {
         ParkingLot parkingLot = new ParkingLot(logs);
@@ -102,7 +102,7 @@ public class Main {
 
 
     /**
-     * Returns the busiest hours of the day
+     * Returns the busiest hours of the day using prefix sum technique
      */
     public static ArrayList<Integer> BusiestHours(String[][] logs) throws ParseException {
         ArrayList<Integer> busiest_hours = new ArrayList<>();
@@ -114,7 +114,7 @@ public class Main {
             int entrance_time_by_hour = vehicle.getParking_date_time().get(Calendar.HOUR_OF_DAY);
             int exit_time_by_hour;
 
-            // if the never exit the parking lot, mark the car stay until the end of the day
+            // if the vehicle never exit the parking lot, mark it as staying until the end of the day
             if(vehicle.isEnd_parking()) {
                 exit_time_by_hour = vehicle.getExit_data_time().get(Calendar.HOUR_OF_DAY);
             }
@@ -139,8 +139,6 @@ public class Main {
                 busiest_hours.add(i);
             }
         }
-
-        System.out.println(max);
         return busiest_hours;
     }
 }
